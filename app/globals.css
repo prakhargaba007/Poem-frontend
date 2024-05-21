@@ -1,0 +1,75 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; */
+}
+
+/* Optional: Style to indicate disabled selection */
+body::selection {
+  background-color: transparent;
+  color: inherit;
+}
+
+.about {
+  margin-bottom: 0px;
+}
+
+section {
+  max-width: 800px;
+  margin: 20px auto;
+  margin-bottom: 100px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.content {
+  margin: 0px 0px 100px 0px;
+}
+/* section img {
+  box-sizing:content-box;
+} */
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+/* .booklinks a{
+  color: blue;
+} */
+a {
+  text-decoration: none;
+  color: blue;
+}
+/* a:hover{ */
+/* font-weight:500; */
+/* scale: 1.1; */
+/* transform: scale(1.5); */
+/* color: rgb(21, 3, 86);
+} */
+button {
+  font-size: 18px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#likeBtn.liked {
+  /* color: green; */
+  background-color: rgb(1, 173, 1);
+}
+
+#dislikeBtn.disliked {
+  /* color: red; */
+  background-color: red;
+}

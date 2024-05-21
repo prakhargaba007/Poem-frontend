@@ -1,0 +1,9 @@
+.thumsUp {
+  display: flex;
+  gap: 15px;
+  font-size: x-large;
+  font-weight: bold;
+  /* justify-content: space-between; */
+  align-items: center;
+  size: 20px;
+}

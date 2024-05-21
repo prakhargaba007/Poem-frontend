@@ -1,0 +1,28 @@
+.replyBtn {
+  margin-top: 5px;
+  background: none;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+}
+
+.replyForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 180px; */
+}
+
+.replyForm textarea {
+  margin-left: 59px;
+  width: 50%;
+}
+
+.button1 {
+  /* width: 100%; */
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

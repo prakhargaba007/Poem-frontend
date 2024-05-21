@@ -1,0 +1,15 @@
+.replies {
+  margin-top: 10px;
+  margin-left: 20px;
+  list-style-type: none;
+}
+
+.reply {
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-left: 3px solid #007bff;
+}
+
+.noReply {
+  padding-left: 20px;
+}

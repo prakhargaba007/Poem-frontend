@@ -1,0 +1,32 @@
+.comments {
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  /* text-decoration: none; */
+  list-style-type: none;
+}
+
+.comment {
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+.commentAuthor {
+  font-weight: bold;
+}
+
+.replyBtn {
+  margin-top: 5px;
+  background: none;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+}
+
+.userComment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
