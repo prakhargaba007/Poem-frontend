@@ -9,9 +9,11 @@ const PoemForm = ({ toggleForms }) => {
   const [state, formAction] = useFormState(createNewPost, { error: null });
 
   const [userId, setUserId] = useState(null);
+  const [token, setToken] = useState(null);
   useEffect(() => {
     // Access localStorage only on the client side
     setUserId(localStorage.getItem("userId"));
+    setToken(localStorage.getItem("token"));
   }, []);
 
   return (
@@ -46,6 +48,7 @@ const PoemForm = ({ toggleForms }) => {
             {userId && (
               <div className={classes["input-group"]}>
                 <input type="hidden" name="author" value={userId} />
+                <input type="hidden" name="token" value={token} />
               </div>
             )}
             <button type="submit" className={classes.btn}>
