@@ -8,12 +8,13 @@ import Image from "next/image";
 const Profile = () => {
   const [profileData, setProfileData] = useState(null);
   const [userId, setUserId] = useState(null);
+  const [token, setToken] = useState(null);
   useEffect(() => {
     // Access localStorage only on the client side
     setUserId(localStorage.getItem("userId"));
+    setToken(localStorage.getItem("token"));
   }, []);
   // console.log(userId);
-  let token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchProfileData = async () => {
