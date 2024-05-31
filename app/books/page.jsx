@@ -5,8 +5,14 @@ import { useEffect, useState } from "react";
 async function fetchMeals() {
   // console.log(process.env.URL);
   try {
+    let token = localStorage.getItem("token");
     const response = await fetch(
-      process.env.NEXT_PUBLIC_BACKEND_URL + "/feed/posts"
+      process.env.NEXT_PUBLIC_BACKEND_URL + "/feed/posts",
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
     );
     if (!response.ok) {
       throw new Error("Failed to fetch posts.");

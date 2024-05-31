@@ -5,6 +5,7 @@ import classes from "./dropDown.module.css";
 
 export default function DropDown({ slug, data, updatedComments }) {
   const [isDeleting, setIsDeleting] = useState(false);
+  let token = localStorage.getItem("token");
 
   const handleEdit = async () => {
     const comment = prompt("Enter your new comment:");
@@ -17,6 +18,7 @@ export default function DropDown({ slug, data, updatedComments }) {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
             },
             body: JSON.stringify({
               comment,
@@ -56,6 +58,7 @@ export default function DropDown({ slug, data, updatedComments }) {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
             },
             body: JSON.stringify({
               commentId: data._id,

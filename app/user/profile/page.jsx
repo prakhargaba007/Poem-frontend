@@ -13,6 +13,7 @@ const Profile = () => {
     setUserId(localStorage.getItem("userId"));
   }, []);
   // console.log(userId);
+  let token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -22,6 +23,7 @@ const Profile = () => {
           {
             method: "POST",
             headers: {
+              Authorization: "Bearer " + token,
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ userId: userId }),

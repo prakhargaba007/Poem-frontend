@@ -4,6 +4,7 @@ import classes from "./dropDown.module.css";
 
 export default function DropDown({ slug, data, updatedReply, commentId }) {
   const [isDeleting, setIsDeleting] = useState(false);
+  let token = localStorage.getItem("token");
 
   const handleEdit = async () => {
     // console.log("commentId", commentId);
@@ -18,6 +19,7 @@ export default function DropDown({ slug, data, updatedReply, commentId }) {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
             },
             body: JSON.stringify({
               newReply: newReply,
@@ -55,6 +57,7 @@ export default function DropDown({ slug, data, updatedReply, commentId }) {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
             },
             body: JSON.stringify({
               commentId,

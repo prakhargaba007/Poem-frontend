@@ -1,30 +1,31 @@
 "use client";
 
-// AddComment.jsx
 import { useState } from "react";
 import classes from "./AddComment.module.css";
 
-export default function AddComment({ slug, updateComments }) {
+export default function AddComment({ slug, updateComments, setError }) {
   const [comment, setComment] = useState("");
 
   let userId = localStorage.getItem("userId");
+  let token = localStorage.getItem("token");
   // console.log(userId);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!userId) {
-      return;
-    }
     // console.log("url", process.env.NEXT_PUBLIC_BACKEND_URL);
 
     try {
+      if (!userId) {
+        throw new Error("User not authenticated.");
+      }
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/feed/post/${slug}`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
           },
           body: JSON.stringify({
             comment: comment,
@@ -33,12 +34,13 @@ export default function AddComment({ slug, updateComments }) {
       );
 
       if (!response.ok) {
+        console.log("s",response);
         throw new Error("Failed to add comment.");
       }
 
       // Get the complete comment data from the response
       const newComment = await response.json();
-      // console.log("1", newComment.post.comment);
+      console.log("1", newComment);
 
       // Update the comments state in the parent component
       updateComments(
@@ -50,7 +52,9 @@ export default function AddComment({ slug, updateComments }) {
       // Reset the comment input after successful submission
       setComment("");
     } catch (error) {
-      console.error("Error adding comment:", error);
+      console.error(error);
+      console.log(error.details);
+      setError(error.message);
     }
   };
 

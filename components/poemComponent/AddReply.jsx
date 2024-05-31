@@ -15,6 +15,8 @@ export default function AddReply({ slug, updateReplies, comment }) {
       return;
     }
 
+    let token = localStorage.getItem("token");
+
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/feed/post/${slug}/reply`,
@@ -22,6 +24,7 @@ export default function AddReply({ slug, updateReplies, comment }) {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
           },
           body: JSON.stringify({
             reply: reply,
